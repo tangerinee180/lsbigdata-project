@@ -8,7 +8,7 @@ import math
 df = pd.DataFrame({'name'  : ['김김','나나','박박','이이'],
 'eng'  : [90,80,60,70],
 'math' : [50,60,100,20]})
-
+  
 df
 df['eng']
 sum(df['eng'])
