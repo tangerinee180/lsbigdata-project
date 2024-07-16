@@ -24,7 +24,7 @@ var4 = " "
 var5 = "LS 빅데이터 스쿨!"
 var1 + var2
 var2 + var1
-strsplit(var3,"하")[1]
+type(strsplit(var3,"하")[0])
 var5 + var4 + var3
 #shift + alt +아래화살표 (복사)
 #Ctrl + alt + 아래화살표(커서여러개)
