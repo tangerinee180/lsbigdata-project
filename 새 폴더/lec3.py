@@ -39,9 +39,8 @@ type(numbers)
 
 mixed_list = [1,"Hello",[1,2,3]]
 type(mixed_list)
-ml = mixed_list
-ml[2][1]
-tu = 10,20,30
+
+
 tu = (10,20,30) #tu = 10,20,30 과 동일
 b_int = (42)
 b_int
@@ -61,8 +60,8 @@ a_tp[1] = 25
 a_tp[3:] #해당 인덱스 이상
 a_tp[:3] #해당 인덱스 미만
 
-def min_max(numbers):
-    return [min(numbers),max(numbers)]
+def min_max(numbers) :
+  return [min(numbers),max(numbers)]
 
 nums = [1,2,3,4,5]
 result = min_max(nums)
@@ -76,7 +75,7 @@ person = {
 'city': 'New York'
 }
 print("Person:", person)
-type(person)
+
 person.update({'name':'bob',"age":'25'})
 
 print("Person:", person)
@@ -91,7 +90,7 @@ person2 = {
 }
 
 person2.get('age')[0]
-per2_age = person2.get("age")
+per2_age = person2.get("나이")
 per2_age[0]
 
 print("Person =",person)
@@ -114,8 +113,8 @@ empty_set.add("apple")
 empty_set.add("apple")
 empty_set.remove("banana")
 empty_set.discard("banana")
-empty_set
 
+empty_set
 other_fruits = {'berry', 'cherry'}
 union_fruits = fruits.union(other_fruits)
 intersection_fruits = fruits.intersection(other_fruits)
@@ -142,17 +141,7 @@ if (a==2) :
   print("a는 2와 같습니다.")
 else:
   print("a는 2와 같지 않습니다.")
-#이중 for 문
-matrix = []
-for i in range(5):  
-    row = []
-    for j in range(5):  
-        row.append(i * j) 
-    matrix.append(row)
-matrix
-
-for row in matrix:
-    print(row)
+  
   
 # 숫자형을 문자열형으로 변환
 num = 123
@@ -174,37 +163,6 @@ print("Dictionary from set:", dict_from_set)
 
 set_example = {'a', 'b', 'c'}
 set_example2 = {'x','y','z'}
-
-set_example = {'a', 'b', 'c'}
-set_example2 = {'x', 'y', 'z'}
-
-dict_from_set = {item: (item in set_example2) for item in set_example}
-print(dict_from_set)
-x
-list_example = ['a', 'b', 'c']
-list_example2 = ['x', 'y', 'z']
-
-zip(list_example,list_example2)
-dict_from_lists = {key: value for key, value in zip(list_example, list_example2)}
-[('a','x'),('b','y'),('c','z')]
-print(dict_from_lists)
-print(zip(list_example,list_example2))
-
-#
-array1 = np.array([[4,5,6],[7,8,9]])
-array2 = np.array([[[4, 5, 6],[1,2,3]], [[7, 8, 9],[1,2,3]]])
-array1.shape
-array2.shape
-
-[
-  [
-    [4, 5, 6]
-  ],
-  [
-    [7, 8, 9]
-  ]
-]
-
 
 dict_from_set = {key in set_example2 for item in set_example}
 print("Dictionary from set:", dict_from_set)

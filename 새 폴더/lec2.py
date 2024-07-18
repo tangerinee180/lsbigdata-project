@@ -24,8 +24,7 @@ var4 = " "
 var5 = "LS 빅데이터 스쿨!"
 var1 + var2
 var2 + var1
-
-var3.split("하")
+type(strsplit(var3,"하")[0])
 var5 + var4 + var3
 #shift + alt +아래화살표 (복사)
 #Ctrl + alt + 아래화살표(커서여러개)
@@ -93,7 +92,6 @@ str1 = "Hello"
 
 repeated_str = str1 * 3
 print("repeated_string = ",repeated_str)
-type(repeated_str)
 
 # 정수 : int(integer)
 # 실수 : float(double)
