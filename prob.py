@@ -45,13 +45,59 @@ def New(num):
     return np.where(ns<0.2,0,np.where(ns<0.7,1,2))
 New(100)
 
+def New(num,p):
+    ns = np.random.rand(num)
+    pc = p.cumsum()
+    return np.where(ns<pc[0],0,np.where((ns<pc[1]),1,2))
+
+New(100,p)
+
+
+
+#p와 result 가 같은 size 로 주어졌을 때 구할 수 있는 함수
+p = np.array([0.2,0.5,0.3])
+result = [0,1,2]
+
+
+def Real_New(num,p,result):
+    final = []
+    ns = np.random.rand(num)
+    pc = p.cumsum()
+    for y in ns :
+        for i,x in enumerate(pc) :
+            if x > y:
+                final.append(result[i])
+                break
+    return final
+import numpy as np
+#enumerate()
+p = np.array([0.2, 0.5, 0.3])
+result = [0, 1, 2]
+
+def Real_New2(num, p, result):
+    final = []
+    ns = np.random.rand(num)
+    pc = p.cumsum()  
+    for y in ns:
+        a = 0  
+        for x in pc:  
+            if x > y:
+                final.append(result[a])  
+                break
+            a += 1  
+    return final
+
+Real_New(30,p,result)
+Real_New2(30,p,result)                
+                
+
 def New2(num):
     result = []
     for _ in range(num):
         st = np.random.rand(1)
-        if st <0.2:
+        if st <=0.2:
             x= 0
-        elif 0.2<st<0.7:
+        elif st<=0.7:
             x=1
         else:
             x=2
@@ -60,3 +106,11 @@ def New2(num):
 
 New(100)
 New2(100)
+1*2/6 + 2*2/6 + 3*1/6
+
+#E(X)
+sum(np.arange(4)*np.array([1,2,2,1])/6)
+
+#X 가 
+#X ~Bernulli(p)
+
