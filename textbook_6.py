@@ -2,16 +2,16 @@ import pandas as pd
 import numpy as np
 
 #데이터 전처리 함수
-#query()
-#df[]
-#sort_values()
-#groupby()
-#assign()
-#agg()
-#merge()
-#concat()
+    #query()
+    #df[]
+    #sort_values()
+    #groupby()
+    #assign()
+    #agg()
+    #merge()
+    #concat()
 
-
+a = np.array()
 
 exam = pd.read_csv("data/exam.csv")
 

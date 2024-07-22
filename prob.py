@@ -44,6 +44,8 @@ def New(num):
     ns = np.random.rand(num)
     return np.where(ns<0.2,0,np.where(ns<0.7,1,2))
 New(100)
+np.random.randint(0,32,5).reshape(-1,5)
+
 
 def New(num,p):
     ns = np.random.rand(num)
