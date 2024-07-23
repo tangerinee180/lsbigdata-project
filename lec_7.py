@@ -138,6 +138,65 @@ for i in [0,1,2]:
 [i for i in numbers for j in range(4)]
 
 
-fruits = ["apple", "banana", "cherry"]
+fruits = ["apple","apple", "banana", "cherry"]
 print("banana가 리스트에 포함되어 있나요?", "banana" in fruits)
 print("grape가 리스트에 포함되어 있나요?", "grape" in fruits)
+
+#[x == "banana" for x in fruits]
+mylist=[]
+for x in fruits:
+    mylist.append(x == "banana")
+index_list =[]
+fruits = ["apple", "banana", "cherry"]
+for x in range(len(fruits)):
+    if fruits[x] == "banana":
+        index_list.append(x)
+index_list
+
+np.where(np.array(fruits) =="banana")[0][0] 
+#원소 거꾸로 써주기
+fruits = ["apple","apple", "banana", "cherry"]
+fruits.reverse()
+
+#원소 맨끝에 붙여주기
+fruits.append("pineapple")
+fruits
+
+fruits = ["apple", "banana", "cherry"]
+fruits.extend(["date", "elderberry"])
+print("extend() 후 리스트:", fruits)
+#원소삽입
+fruits.insert(2,"test")
+fruits
+
+#원소제거
+fruits.remove("test")
+
+import numpy as np
+# 넘파이 배열 생성
+fruits = np.array(["apple", "banana", "cherry", "apple", "pineapple"])
+# 제거할 항목 리스트
+items_to_remove = np.array(["banana", "apple"])
+# 불리언 마스크 생성
+mask = ~np.isin(fruits, ["banana", "apple"])
+np.isin(fruits, items_to_remove)
+# 불리언 마스크를 사용하여 항목 제거
+filtered_fruits = fruits[mask]
+print("remove() 후 배열:", filtered_fruits)
+
+
+mylist_b=[1,2,3,4,5,6,7,8,9,0]
+xx = []
+for i in range(len(mylist_b)):
+    if i % 2 == 0:
+        xx.append(mylist_b[i])
+xx
+
+mylist_b=[2,4,6,80,10,12,24,35,23,20,100]
+mylist=[0]*5
+len(mylist)
+for i in range(len(mylist_b)):
+    if mylist_b[i]%2==0:
+    print("ff")
+    mylist[i]=mylist_b[2*i]
+

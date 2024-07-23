@@ -1,0 +1,49 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+jupyter: python3
+---
+
+## 빈도 막대 그래프 그리기
+
+## seaborn 패키지 불러오기
+
+```{python}
+import seaborn as sns
+```
+
+## 데이터 전처리하기
+
+```{python}
+mpg = pd.read_csv('data/mpg.csv')
+df_mpg = mpg.groupby("drv",as_index=False)\
+            .agg(mean_hwy=("hwy",'mean'))
+
+```
+
+### barplot 사용하기
+
+```{python}
+
+sns.barplot(data = df_mpg,x = "drv",y="mean_hwy",\
+hue ="drv")
+plt.show()
+plt.clf()
+```
+
+## countplot 사용하기
+
+```{python}
+sns.countplot(data=df_mpg,x="drv",\
+order = mpg["drv"]).value_counts.index()
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+## Scatter 사용하기
+
+```{python}
+px.scatter(data_frame=mpg,\
+           x="displ",y="hwy",color="drv").set(xlim=[3,6],ylim=[10,30])
+```
