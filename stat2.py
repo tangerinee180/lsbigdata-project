@@ -300,3 +300,13 @@ sns.histplot(x,stat = 'density')
 plt.show()
 plt.clf()
 
+
+norm.sf(0, loc=0, scale=1)
+#생존 함수(Survival Function)
+#주어진 값 x에 대해, 정규 분포에서 해당 값보다 클 확률을 반환합니다.
+
+
+norm.isf(q, loc=0, scale=1)
+#역 생존 함수(Inverse Survival Function)
+#주어진 확률 q에 대해, 정규 분포에서 해당 확률에 대응하는 값을 반환합니다.
+

@@ -134,7 +134,7 @@ for i in range(5):
 for i in [0,1,2]:
     for j in [0,1]:
         print(i+j)
-
+numbers = [1,2,3]
 [i for i in numbers for j in range(4)]
 
 
