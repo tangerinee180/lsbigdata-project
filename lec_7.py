@@ -200,3 +200,51 @@ for i in range(len(mylist_b)):
     print("ff")
     mylist[i]=mylist_b[2*i]
 
+np.random.choice(3,20,replace=False)
+np.random.random_integers(1,28,28)
+import pandas as pd
+old_seat = np.arange(1, 29)
+np.random.seed(20240729)
+
+new_seat = np.random.choice(old_seat,28,replace=False)
+
+df = pd.DataFrame({"old_seat":old_seat,
+                   "new_seat":new_seat })
+
+df.to_csv("result.csv")
+
+a = np.linspace(-100,100,1000)
+b= a*2
+#plt.plot 
+x = np.linspace(0,8,2)
+y= x*2
+plt.plot(a,b)
+plt.show()
+plt.grid()
+plt.clf()
+
+plt.plot(x,y)
+
+#y=x^2
+a = np.linspace(0,8,3)
+b = a*a
+
+plt.plot(a,b)
+
+a = np.linspace(-10,10,1000)
+b = a*a
+
+
+#plt.axis('equal')
+plt.xlim(-40,40)
+plt.ylim(0,40)
+plt.plot(a,b)
+plt.grid()
+plt.gca()
+
+plt.show()
+plt.clf()
+
+
+
+

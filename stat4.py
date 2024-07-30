@@ -1,6 +1,7 @@
 from scipy.stats import uniform
 import numpy as np    
 import seaborn as sns
+import matplotlib.pyplot as plt    
 
 #X ~ U(a,b) 균일분포 U의 모수 a는 시작점, b는 길이
 #시작점이 0 이고 길이가 4 인 uniform 함수
@@ -12,12 +13,12 @@ uniform.cdf(x,loc=0,scale=1)
 uniform.ppf(x,loc=0,scale=1)
 '''
 #분산 구하는 함수
-uniform.var(loc=2,scale=4)/n
+uniform.var(loc=2,scale=4)
 
 uniform.expect(loc=2,scale=4)
 
 x_lin = np.linspace(2,6,100)
-x_values = uniform.pdf(a_lin,loc=2,scale=4)
+x_values = uniform.pdf(x_lin,loc=2,scale=4)
 
 plt.plot(x_lin,x_values,color="red",linewidth=2)
 
@@ -77,3 +78,4 @@ plt.show()
 plt.clf()
 
 0.665/np.sqrt(uniform.var(loc=2,scale=4)**2/20)
+

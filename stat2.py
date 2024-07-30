@@ -198,7 +198,8 @@ plt.axvline(x=7.8,color="blue",linestyle='--',linewidth=2)
 plt.show()
 plt.clf()
 
-    
+import numpy as np        
+np.arange(3,125,30)
 
 x= np.arange(31)
 prob_x = binom.pmf(x,n=30,p=0.3)
