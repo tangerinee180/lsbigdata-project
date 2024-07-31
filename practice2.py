@@ -11,7 +11,7 @@ house_train = house_train_raw.copy()
 
 house_test_raw = pd.read_csv("data/test.csv")
 house_test = house_test_raw.copy()
-
+house_train
 house_train = house_train.groupby("YearBuilt",as_index=False).agg(Living_area = ("GrLivArea","mean"),
                                         overall_cond = ("OverallCond","mean"),
                                         sale_price_mean = ("SalePrice","mean"),
