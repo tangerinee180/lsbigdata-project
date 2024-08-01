@@ -212,7 +212,7 @@ plt.axvline(x=7.8,color="blue",linestyle='--',linewidth=2)
 plt.show()
 plt.clf()
 
-#pmf : x라는 값이 나오는 확률 구해줌
+#pmf : x라는 값이 나오는 확률 구해줌 ~= pdf
 binom.pmf(x,n=30,p=0.3)
 #rvs : 사이즈 x개의 표본 만들어줌(x1,x2,x3 가 30개)
 binom.rvs(n=30,p=0.26,size=x)
@@ -220,7 +220,7 @@ binom.rvs(n=30,p=0.26,size=x)
 binom.ppf(x,n=30,p=0.26)
 #cdf : 왼쪽 끝에서부터 입력한 값까지의 확률의 합
 binom.cdf(x,30,0.26)
-#pdf 
+
 
 #정규분포 loc = 뮤 , scale = 시그마
 #모수란? 함수의 모양을 결정하는 파라미터들
@@ -237,7 +237,7 @@ y = norm.pdf(np.linspace(-3,3,100),loc=0,scale=1)
 plt.plot(k,y,color='black')
 plt.show()
 plt.clf()
-
+norm.pdf(2,0,1)
 
 ## mu (loc) : 분포의 중심 결정하는 모수 = E(X)
 

@@ -41,6 +41,5 @@ plt.title("Price by Area")
 plt.xlabel("Total Area")
 plt.ylabel("Home Price")
 
-plt.legend()
 plt.show()
 plt.clf()
