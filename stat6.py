@@ -119,6 +119,3 @@ x_bar - t.ppf(0.975,df=n-1) * np.std(x,ddof=1)/np.sqrt(n)
 x_bar + norm.ppf(0.975,loc=0,scale=3) * 3 /np.sqrt(n)
 x_bar - norm.ppf(0.975,loc=0,scale=3) * 3 /np.sqrt(n)
 
-
-
-
