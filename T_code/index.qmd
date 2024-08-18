@@ -1,0 +1,201 @@
+---
+title: "HI!"
+jupyter: python3
+toc: false
+about: 
+    id: hero-heading
+    template: jolla
+    image: duck.jpg
+    links: 
+      - icon: github
+        text: Github
+        href: https://github.com/tangerinee180
+---
+
+> Anyone can learn anything with a proper education.
+
+\- **`Issac Lee, 2023`**
+
+### Q1. 다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.
+
+### Q2. 앞에서 만든 데이터 프레임을 이용해 과일의 가격 평균과 판매량 평균을 구해 보세요. P84
+
+```{python}
+import pandas as pd
+
+df = pd.DataFrame({"제품" : ["사과","딸기","수박"], "판매량" : [1800,1500,3000], "가격" : [24,38,13]} )
+
+mean_price = sum(df["판매량"])/len(df) 
+mean_sold = sum(df["가격"])/len(df)
+
+```
+
+### 
+
+### Q3,Q4,Q5 mpg 데이터를 이용해 분석 문제를 해결해 보세요. P115
+
+```{python}
+import pandas as pd
+
+df = pd.read_csv("mpg.csv")
+cmpg = df.copy()
+cmpg = cmpg.rename(columns = {"cty": "city","hwy":"highway"})
+cmpg
+
+```
+
+### Q6\~Q10 P130
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn
+import numpy as np    
+
+midwest = pd.read_csv("midwest.csv")
+midwest.info
+mw = midwest.copy()
+mw = mw.rename(columns = {"poptotal":"total","popasian":"asian"})
+mw["asian_percent"] = mw["asian"]/mw["total"]*100
+mw["asian_percent"].plot.hist()
+plt.show()
+plt.clf()
+mw["paseng"] = np.where(mw["asian_percent"]>(sum(mw["asian_percent"])/len(mw)),"large","small")
+mw["paseng"] = mw["asian_percent"].apply(lambda x: "large" if x > sum(mw["asian_percent"])/len(mw) else "small")
+mw["paseng"].value_counts().plot.bar()
+plt.show()
+plt.clf()
+```
+
+### P144
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn
+import numpy as np    
+
+mpg_raw = pd.read_csv("mpg.csv")
+mpg = mpg_raw.copy()
+
+
+a4 = sum(mpg.query('displ <= 4')["hwy"])/len(mpg.query('displ <= 4')["hwy"])
+a4 = mpg.query('displ <= 4')["hwy"].mean()
+b5 = sum(mpg.query('displ >= 5')["hwy"])/len(mpg.query('displ >= 5')["hwy"])
+if a4 > b5 :
+    print("배기량 4 이하 자동차가 고속도로 연비 평균이 높습니다.")
+else :
+    print("배기량 5 이상 자동차가 고속도로 연비 평균이 높습니다.")
+
+mpg.info
+audi_cty_mean = mpg.query('manufacturer == "audi"')["cty"].mean()
+toyota_cty_mean = mpg.query('manufacturer == "toyota"')["cty"].mean()
+if audi_cty_mean > toyota_cty_mean :
+    print("audi의 도시 연비 평균이 높습니다.")
+else :
+    print("toyota의 도시 연비 평균이 높습니다.")
+
+print(mpg.query('manufacturer in ["chevorlet","ford","honda"]')['hwy'].mean())
+
+
+```
+
+### p150
+
+```{python}
+import pandas as pd
+import numpy as np    
+
+mpg_raw = pd.read_csv("mpg.csv")
+mpg = mpg_raw.copy()
+mpg[["category","cty"]]
+suv_cty_mean = mpg.query("category == 'suv'")['cty'].mean()
+com_cty_mean = mpg.query("category == 'compact'")['cty'].mean()
+
+if suv_cty_mean > com_cty_mean :
+    print("suv의 도시 연비 평균이 높습니다.")
+else :
+    print("compact의 도시 연비 평균이 높습니다.")
+
+```
+
+### p153
+
+```{python}
+import pandas as pd
+mpg = pd.read_csv("mpg.csv")
+mpg.query('manufacturer == "audi"').sort_values("hwy",ascending=False).head()
+mpg[mpg["manufacturer"]== "audi"].sort_values("hwy",ascending=False).head()
+```
+
+### p158
+
+```{python}
+
+mpg_raw = pd.read_csv("mpg.csv")
+mpg = mpg_raw.copy()
+mpg.assign(sum_ty = lambda x : x['cty'] + x["hwy"],
+ave_ty = lambda x : x['sum_ty']/2).sort_values("ave_ty",ascending=False).head(3)
+mpg = mpg.assign(sum_ty = lambda x : x['cty'] + x["hwy"],
+ave_ty = lambda x : x['sum_ty']/2)
+
+mpg.sort_values("ave_ty").head(3)
+```
+
+### 
+
+### p166
+
+```{python}
+import pandas as pd
+
+mpg_raw = pd.read_csv("mpg.csv")
+mpg = mpg_raw
+mpg
+mpg.groupby("category").agg(mean_cty = ("cty","mean"))
+
+mpg.groupby("category").agg(mean_cty = ("cty","mean")).sort_values("mean_cty",ascending=False)
+
+mpg.groupby("manufacturer").agg(mean_hwy = ("hwy","mean")).sort_values("mean_hwy",ascending=False).head(3)
+
+print(mpg.query('category == "compact"')["manufacturer"].value_counts().sort_values(ascending=False))
+
+```
+
+### p173
+
+```{python}
+import pandas as pd
+
+mpg_raw = pd.read_csv("mpg.csv")
+
+fuel = pd.DataFrame({"fl":["c","d","e","p","r"],\
+"price_fl" : [2.35,2.38,2.11,2.76,2.22]})
+
+mpg.columns
+
+mpg = pd.merge(mpg,fuel,how="left",on="fl")
+
+mpg[["model","fl","price_fl"]].head()
+```
+
+### p176
+
+```{python}
+import pandas as pd
+import numpy as np
+
+a = np.array(1)
+type(a)
+df = pd.read_csv("midwest.csv")
+df
+df["popadults"]
+df["poptotal"]
+df["non_adult_pop"] = (df["poptotal"] - df["popadults"])/df["poptotal"] *100
+df.sort_values("non_adult_pop",ascending=False).head()
+df['na_grade'] = np.where(df["non_adult_pop"]>=40,"large",np.where(df["non_adult_pop"]>=30,"middle","small"))
+df["asian_pop"] = df["popasian"]/df["poptotal"]*100
+df.sort_values("asian_pop",ascending=True)[['county','state','asian_pop']].head(10)
+```
+
+def change_type(df, dtype_dict): for a, dtype in dtype_dict.items(): df\[col\] = df\[col\].astype(dtype) return df

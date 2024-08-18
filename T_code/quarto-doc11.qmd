@@ -1,0 +1,141 @@
+---
+title: "quarto_doc11"
+format: html
+jupyter: python3
+editor_options: 
+  chunk_output_type: console
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{python}
+1 + 1
+```
+qq
+You can add options to executable code like this 
+
+```{python}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+# 제목 1
+## 제목 2
+### 제목 3
+#### 제목 4
+
+**render**
+**한글이다이녀석아**
+
+
+
+1. 항목 1
+2. 항목 2
+3. 항목 3
+
+```{python}
+#Ctrl + Alt + I 하면 파이썬 청크가 나온다.
+```
+`#Ctrl + Alt + I 하면 파이썬 청크 코드가 나온다.`
+
+###코드 청크 종류
+1. 인라인 코드청크: 백틱(`) 하나로 묶음
+`printf`
+2. 디스플레이 코드청크: 백틱(```) 세 개로 묶음
+``` 
+printf
+```
+1.a
+1.b
+1.c
+1.d
+
+### 코드청크 실행하려면
+백틱 뒤에 "{python}" 을 붙여주면 됨
+```{python}
+
+```
+
+
+## 코드 청크 실행 옵션
+옵션은 `#|` 로 시작함.
+*'echo' 옵션: 코드를 문서에 보여줌 - fenced
+*'eval' 옵션: 코드를 돌릴 것인가, 그냥 둘 것인가를 결정
+
+```{python}
+#| echo: true
+#| eval: false
+1 + 1
+```
+
+***tools에 Keyboard Shortcut Help***
+
+##취소선, 굵게, 이탤릭, 하이라이트
+
+~~취소선 텍스트~~
+_기울임 텍스트_
+*이탤릭 텍스트*
+==하이라이트 텍스트==
+
+###해야 할 일들
+- [x] 화분 물 주기]
+- [ ] 밀린 일기 작성
+
+
+
+
+- 항목 1
++ 항목 2
+* 항목 3
+
+[슬기로운 통계생활](https://statisticsplaybook.com/)
+
+[슬기로운 통계생활]<https://statisticsplaybook.com/>
+
+![위키피디아 흑요석](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/ObsidianOregon.jpg/360px-ObsidianOregon.jpg)
+
+![위키피디아 흑요석](./image/obsidian.jpg)
+
+
+##수식 입력 방법
+*인라인 수식 : $ 하나로 감싸준다.(본문에 입력)
+*디스플레이 수식 : $ 두 개로 감싸준다.(독립적인 문단)
+
+문장안에 숫자 $5$를 넣어보자
+
+문장안에 숫자 $5^2$를 넣어보자
+
+여러 숫자들을 따로 떼어 표시하자.
+$$
+x^2 + y^2 = 5
+$$
+
+> Anyone can learn anything with a proper education.
+
+\- `Issac Lee, 2023`
+
+인라인 코드: `print("Hello, World!")`
+
+코드 블록:
+
+```{python}
+#| echo: false
+#배고팡
+def greet():
+    print("Hello, World!")
+greet()
+```
+
+오늘 저녁 맛있었으면 좋겠다!! ~~어제 저녁은[^1],,,ㅎ~~
+
+[^1]: **장조림'버터'비빔밥**
+
+인라인 각주도 사용할 수 있습니다. ^[이것은 인라인 각주입니다.]
